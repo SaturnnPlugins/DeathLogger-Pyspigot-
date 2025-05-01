@@ -7,7 +7,7 @@ from java.net import URL
 from java.net import HttpURLConnection
 from java.io import OutputStreamWriter  # Corrected this import
 
-WEBHOOK_URL = "https://discord.com/api/webhooks/1367294691741012100/6ehea_QLX3NUxKOhTwW5pQESutDT3jqEMTPFafmrkKxs-E9MxSmrfFnNopkswSAQcuEI"
+WEBHOOK_URL = "put_your_webhook_here"
 
 # Define the function that will handle the event
 def on_player_death(event):
