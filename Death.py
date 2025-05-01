@@ -9,7 +9,6 @@ from java.io import OutputStreamWriter  # Corrected this import
 
 WEBHOOK_URL = "put_your_webhook_here"
 
-# Define the function that will handle the event
 def on_player_death(event):
     if isinstance(event, PlayerDeathEvent):
         player = event.getEntity()  # Get the player who died
@@ -33,7 +32,6 @@ def on_player_death(event):
         # Send the data to the webhook
         send_to_discord(embed)
 
-# Function to send data to the Discord webhook using Java's HttpURLConnection
 def send_to_discord(data):
     """Send the provided data to the Discord webhook using HttpURLConnection."""
     try:
@@ -45,13 +43,11 @@ def send_to_discord(data):
         connection.setRequestProperty("Content-Type", "application/json")
         connection.setDoOutput(True)
 
-        # Write the JSON data to the output stream
         output_stream = OutputStreamWriter(connection.getOutputStream())
         output_stream.write(json.dumps(data))
         output_stream.flush()
         output_stream.close()
 
-        # Get the response code
         response_code = connection.getResponseCode()
         if response_code == 204:
             ps.logger.info("Death webhook sent successfully.")
